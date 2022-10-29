@@ -1,0 +1,11 @@
+Table contacto {
+  id int [PK]
+  nombres varchar
+  apellidos varchar
+  telefono int
+  celular int
+  description 
+}
+
+
+Ref: project.id < task.projectId
