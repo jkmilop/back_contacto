@@ -8,8 +8,6 @@ import {
 } from "../controllers/contacto.controller.js";
 
 const router = Router();
-
-// Routes
 router.post("/", agregarContacto);
 router.get("/", verContactos);
 router.put("/:id", actualizarContacto);

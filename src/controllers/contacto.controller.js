@@ -1,10 +1,15 @@
 import { Contacto } from "../models/contacto.js";
 
 export async function agregarContacto(req, res) {
-  const {  nombres, apellidos, correo, telefono, celular, direccion } = req.body;
+  const { nombres, apellidos, correo, telefono, celular, direccion } = req.body;
   try {
     const nuevoContacto = await Contacto.create({
-      nombres, apellidos, correo, telefono, celular, direccion
+      nombres,
+      apellidos,
+      correo,
+      telefono,
+      celular,
+      direccion,
     });
     res.json(nuevoContacto);
   } catch (error) {
@@ -15,7 +20,14 @@ export async function agregarContacto(req, res) {
 export async function verContactos(req, res) {
   try {
     const contact = await Contacto.findAll({
-      attributes: ["nombres", "apellidos", "correo", "telefono", "celular", "direccion"],
+      attributes: [
+        "nombres",
+        "apellidos",
+        "correo",
+        "telefono",
+        "celular",
+        "direccion",
+      ],
       order: [["nombres", "DESC"]],
     });
     res.json(contact);
@@ -27,9 +39,15 @@ export async function verContactos(req, res) {
 export async function actualizarContacto(req, res) {
   const { id } = req.params;
   try {
-
     const contacto = await Contacto.findOne({
-      attributes: ["nombres", "apellidos", "correo", "telefono", "celular", "direccion"],
+      attributes: [
+        "nombres",
+        "apellidos",
+        "correo",
+        "telefono",
+        "celular",
+        "direccion",
+      ],
       where: { id },
     });
 
@@ -42,7 +60,6 @@ export async function actualizarContacto(req, res) {
     return res.status(500).json({ message: error.message });
   }
 }
-
 
 export async function eliminarContacto(req, res) {
   const { id } = req.params;
@@ -62,7 +79,14 @@ export async function seleccionarContacto(req, res) {
   try {
     const contacto = await Contacto.findOne({
       where: { id },
-      attributes: ["nombres", "apellidos", "correo", "telefono", "celular", "direccion"],
+      attributes: [
+        "nombres",
+        "apellidos",
+        "correo",
+        "telefono",
+        "celular",
+        "direccion",
+      ],
     });
     res.json(contacto);
   } catch (error) {
