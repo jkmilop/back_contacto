@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> 9527bb0fcecc9a673c046bc8e28d0a871e1b7b45
 # Back-End Prueba Técnica JR- Práctica
 
 API REST utilizando el framework  node.js  con express y el ORM sequelize con la base de MySql
